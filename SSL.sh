@@ -3,7 +3,7 @@ apt-get install nginx certbot python3-certbot-nginx vim ufw -y
 ufw allow https
 cd  /etc/nginx/sites-enable && wget https://raw.githubusercontent.com/NT-GIT-HUB/SSL_CERTIFICATE/main/CONFIG
 read -p "DOMINIO: " -e -i www.google.com dm
-sed -i 's/www.google.com/'$dm'/g' /etc/nginx/sites-enable
+sed -i 's/www.google.com/'$dm'/g' /etc/nginx/sites-enable/CONFIG
 sleep 1
 chmod +x $(ls)
 cd /etc/nginx/

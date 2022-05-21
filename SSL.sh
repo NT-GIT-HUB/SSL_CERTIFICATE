@@ -4,7 +4,7 @@ ufw allow https
 mkdir $HOME/SSL
 cd $HOME/SSL && wget https://raw.githubusercontent.com/NT-GIT-HUB/SSL_CERTIFICATE/main/CONFIG
 read -p "DOMINIO: " -e -i www.google.com dm
-sed 's/www.google.com/'$dm'/g' $HOME/SSL/CONFIG
+sed -i 's/www.google.com/'$dm'/g' $HOME/SSL/CONFIG
 sleep 1
 chmod +x $(ls)
 mv $HOME/SSL/CONFIG /etc/nginx/sites-enabled

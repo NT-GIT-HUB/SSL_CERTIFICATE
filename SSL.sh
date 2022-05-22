@@ -56,8 +56,8 @@ crontab -r >/dev/null 2>&1
 
 }
 fun_bar 'inst_pct'
-clear
 fun_bar 'copyfile'
+clear
 echo -e ""
 read -p "  DOMÍNIO: " -e -i www.google.com dm
 sed -i 's/www.google.com/'$dm'/g' /etc/nginx/sites-enabled/CONFIG

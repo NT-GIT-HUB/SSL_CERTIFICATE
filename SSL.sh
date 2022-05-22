@@ -1,8 +1,9 @@
 #!/bin/bash
 clear
 echo -e ""
-echo -e "  🔒\033[1;36mCRIE UM CERTIFICADO SSL PARA SEU DOMINIO\033[1;37m"
-echo -ne "\033[1;36mGERAR UMA CHAVE GRÁTIS [N/S]: \033[1;37m"; read ok
+echo -e "  \033[1;36mCERTIFICADO SSL PARA SEU DOMINIO\033[1;37m"
+echo -e ""
+echo -ne "\033[1;31m• \033[1;33mCRIAR CERTIFICADO SSL[N/S]\033[0m"; read ok
 [[ $ok = @(n|N) ]] && exit
 echo -e ""
 fun_bar () {
@@ -36,26 +37,22 @@ inst_pct () {
 _pacotes=("nginx" "certbot" "python3-certbot-nginx" "vim" "ufw")
 for _prog in ${_pacotes[@]}; do
 apt install $_prog -y
-done
-}
-fun_bar 'inst_pct'
-fun_bar 'copyfile'
-
-copyfile (){
 ufw allow https
 cd /etc/nginx/sites-enabled && wget https://raw.githubusercontent.com/NT-GIT-HUB/SSL_CERTIFICATE/main/CONFIG
 sleep 1
 cd /etc/nginx/
 rm sites-enabled/default
-
 crontab -r >/dev/null 2>&1
 (
 	crontab -l 2>/dev/null
 	echo "0 12 * * * /usr/bin/certbot renew --quiet"
 ) | crontab -
+done
 }
+fun_bar 'inst_pct'
+
 clear
 echo -e ""
-read -p "  DOMINIO: " -e -i www.google.com dm
+read -p "  DOMÍNIO: " -e -i www.google.com dm
 sed -i 's/www.google.com/'$dm'/g' /etc/nginx/sites-enabled/CONFIG
 certbot --nginx

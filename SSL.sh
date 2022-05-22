@@ -3,7 +3,7 @@ clear
 echo -e ""
 echo -e "  \033[1;36mCERTIFICADO SSL PARA SEU DOMINIO\033[1;37m"
 echo -e ""
-read -p "  \033[1;31m• \033[1;33mCRIAR CERTIFICADO SSL [N/S]\033[0m: " -e -i S ok
+read -p "  CRIAR CERTIFICADO SSL [N/S]: " -e -i S ok
 [[ $ok = @(n|N) ]] && exit
 clear
 echo -e ""
@@ -55,13 +55,11 @@ crontab -r >/dev/null 2>&1
 ) | crontab -
 
 }
-
 fun_bar 'inst_pct'
-sleep 1
-fun_bar 'copyfile'
-
 clear
+fun_bar 'copyfile'
 echo -e ""
 read -p "  DOMÍNIO: " -e -i www.google.com dm
 sed -i 's/www.google.com/'$dm'/g' /etc/nginx/sites-enabled/CONFIG
+clear
 certbot --nginx

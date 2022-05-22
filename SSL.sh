@@ -3,9 +3,11 @@ clear
 echo -e ""
 echo -e "  \033[1;36mCERTIFICADO SSL PARA SEU DOMINIO\033[1;37m"
 echo -e ""
-echo -e "  \033[1;31m• \033[1;33mCRIAR CERTIFICADO SSL [N/S]\033[0m: "; read ok
+read -p "  \033[1;31m• \033[1;33mCRIAR CERTIFICADO SSL [N/S]\033[0m: " -e -i S ok
 [[ $ok = @(n|N) ]] && exit
 clear
+echo -e ""
+echo -e "  \033[1;36mINSTALANDO PACOTES NECESSARIOS\033[1;37m"
 echo -e ""
 fun_bar () {
 comando[0]="$1"

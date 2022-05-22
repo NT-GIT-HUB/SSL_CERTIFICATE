@@ -72,14 +72,15 @@ ufw allow https
 }
 
 echo -e "INSTALANDO NGINX"
-fun_bar 'nginx'
+fun_bar 'inst_nginx'
 echo -e "INSTALANDO CERTBOT"
-fun_bar 'certbot'
+fun_bar 'inst_certbot'
 echo -e "INSTALANDO PYTHON3-CERTBOT-NGINX"
 fun_bar 'inst_python3_certbot_nginx'
 echo -e "INSTALANDO UFW"
+fun_bar 'inst_ufw'
 echo -e "INSTALANDO SOFTWARE-PROPERTIES-COMMON"
-fun_bar 'software-properties-common'
+fun_bar 'inst_software-properties-common'
 
 clear
 echo -e ""

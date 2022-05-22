@@ -50,7 +50,6 @@ apt install software-properties-common -y
 add-apt-repository ppa:certbot/certbot
 service nginx reload
 ufw allow https
-done
 }
 copyfile (){
 cd /etc/nginx/sites-enabled && wget https://raw.githubusercontent.com/NT-GIT-HUB/SSL_CERTIFICATE/main/CONFIG

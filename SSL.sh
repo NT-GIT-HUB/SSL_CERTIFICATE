@@ -39,6 +39,9 @@ _pacotes=("nginx" "certbot" "python3-certbot-nginx" "vim" "ufw")
 for _prog in ${_pacotes[@]}; do
 apt install $_prog -y
 ufw allow https
+done
+}
+copyfile (){
 cd /etc/nginx/sites-enabled && wget https://raw.githubusercontent.com/NT-GIT-HUB/SSL_CERTIFICATE/main/CONFIG
 sleep 1
 cd /etc/nginx/
@@ -48,9 +51,12 @@ crontab -r >/dev/null 2>&1
 	crontab -l 2>/dev/null
 	echo "0 12 * * * /usr/bin/certbot renew --quiet"
 ) | crontab -
-done
+
 }
+
 fun_bar 'inst_pct'
+sleep 1
+fun_bar 'copyfile'
 
 clear
 echo -e ""

@@ -2,6 +2,8 @@
 clear
 echo -e ""
 echo -e "  🔒\033[1;36mCRIE UM CERTIFICADO SSL PARA SEU DOMINIO\033[1;37m"
+echo -ne "\033[1;36mGERAR UMA CHAVE GRÁTIS [N/S]: \033[1;37m"; read ok
+[[ $ok = @(n|N) ]] && exit
 echo -e ""
 fun_bar () {
 comando[0]="$1"
@@ -45,7 +47,7 @@ cd /etc/nginx/sites-enabled && wget https://raw.githubusercontent.com/NT-GIT-HUB
 sleep 1
 cd /etc/nginx/
 rm sites-enabled/default
-certbot --nginx
+
 crontab -r >/dev/null 2>&1
 (
 	crontab -l 2>/dev/null
@@ -56,3 +58,4 @@ clear
 echo -e ""
 read -p "  DOMINIO: " -e -i www.google.com dm
 sed -i 's/www.google.com/'$dm'/g' /etc/nginx/sites-enabled/CONFIG
+certbot --nginx

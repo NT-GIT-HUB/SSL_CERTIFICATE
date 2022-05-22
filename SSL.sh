@@ -56,6 +56,7 @@ crontab -r >/dev/null 2>&1
 
 }
 fun_bar 'inst_pct'
+clear
 fun_bar 'copyfile'
 clear
 echo -e ""

@@ -5,7 +5,6 @@ cd /etc/nginx/sites-enabled && wget https://raw.githubusercontent.com/NT-GIT-HUB
 read -p "DOMINIO: " -e -i www.google.com dm
 sed -i 's/www.google.com/'$dm'/g' /etc/nginx/sites-enabled/CONFIG
 sleep 1
-chmod +x $(ls)
 cd /etc/nginx/
 rm sites-enabled/default
 clear

@@ -37,9 +37,12 @@ tput cnorm
 }
 
 inst_pct () {
-_pacotes=("nginx" "certbot" "python3-certbot-nginx" "vim" "ufw")
+apt-get update	
+_pacotes=("nginx" "certbot" "python3-certbot-nginx" "vim" "ufw" "software-properties-common")
 for _prog in ${_pacotes[@]}; do
 apt install $_prog -y
+add-apt-repository ppa:certbot/certbot
+service nginx reload
 ufw allow https
 done
 }

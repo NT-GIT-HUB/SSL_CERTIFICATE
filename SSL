@@ -63,9 +63,6 @@ apt install ufw -y
 }
 inst_software-properties-common () {
 apt install software-properties-common -y
-}
-inst_certbot () {
-apt install certbot -y
 add-apt-repository ppa:certbot/certbot
 service nginx reload
 ufw allow https

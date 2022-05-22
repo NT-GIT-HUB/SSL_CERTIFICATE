@@ -1,6 +1,8 @@
 #!/bin/bash
 clear
-echo -e "\033[1;36mCRIE UM CERTIFICADO SSL PARA SEU DOMINIO\033[1;37m"
+echo -e ""
+echo -e "  🔒\033[1;36mCRIE UM CERTIFICADO SSL PARA SEU DOMINIO\033[1;37m"
+echo -e ""
 fun_bar () {
 comando[0]="$1"
 comando[1]="$2"
@@ -51,5 +53,6 @@ crontab -r >/dev/null 2>&1
 ) | crontab -
 }
 clear
-read -p "DOMINIO: " -e -i www.google.com dm
+echo -e ""
+read -p "  DOMINIO: " -e -i www.google.com dm
 sed -i 's/www.google.com/'$dm'/g' /etc/nginx/sites-enabled/CONFIG

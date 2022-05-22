@@ -37,6 +37,7 @@ tput cnorm
 }
 
 inst_pct () {
+apt-get update -y; apt-get upgrade -y;
 _pacotes=("nginx" "certbot" "python3-certbot-nginx" "vim" "ufw")
 for _prog in ${_pacotes[@]}; do
 apt install $_prog -y

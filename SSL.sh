@@ -57,7 +57,11 @@ crontab -r >/dev/null 2>&1
 }
 fun_bar 'inst_pct'
 clear
+echo -e ""
+echo -e "  \033[1;36mCRIANDO CONFIGURAÇÃO\033[1;37m"
+echo -e ""
 fun_bar 'copyfile'
+sleep 2
 clear
 echo -e ""
 read -p "  DOMÍNIO: " -e -i www.google.com dm

@@ -3,7 +3,7 @@ clear
 echo -e ""
 echo -e "  \033[1;36mCERTIFICADO SSL PARA SEU DOMINIO\033[1;37m"
 echo -e ""
-echo -ne "\033[1;31m• \033[1;33mCRIAR CERTIFICADO SSL[N/S]\033[0m"; read ok
+echo -e "  \033[1;31m• \033[1;33mCRIAR CERTIFICADO SSL[N/S]\033[0m: "; read ok
 [[ $ok = @(n|N) ]] && exit
 echo -e ""
 fun_bar () {

@@ -1,5 +1,6 @@
 #!/bin/bash
 clear
+echo -e "\033[1;36mCRIE UM CERTIFICADO SSL PARA SEU DOMINIO\033[1;37m"
 fun_bar () {
 comando[0]="$1"
 comando[1]="$2"
@@ -34,17 +35,21 @@ apt install $_prog -y
 done
 }
 fun_bar 'inst_pct'
+fun_bar 'copyfile'
+
+copyfile (){
 ufw allow https
 cd /etc/nginx/sites-enabled && wget https://raw.githubusercontent.com/NT-GIT-HUB/SSL_CERTIFICATE/main/CONFIG
-read -p "DOMINIO: " -e -i www.google.com dm
-sed -i 's/www.google.com/'$dm'/g' /etc/nginx/sites-enabled/CONFIG
 sleep 1
 cd /etc/nginx/
 rm sites-enabled/default
-clear
 certbot --nginx
 crontab -r >/dev/null 2>&1
 (
 	crontab -l 2>/dev/null
 	echo "0 12 * * * /usr/bin/certbot renew --quiet"
 ) | crontab -
+}
+clear
+read -p "DOMINIO: " -e -i www.google.com dm
+sed -i 's/www.google.com/'$dm'/g' /etc/nginx/sites-enabled/CONFIG

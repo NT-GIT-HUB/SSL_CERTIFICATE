@@ -39,6 +39,8 @@ tput cnorm
 copyfile (){
 cd /etc/nginx/confid.d && wget https://raw.githubusercontent.com/NT-GIT-HUB/SSL_CERTIFICATE/main/domain‑name.conf
 sleep 1
+cd /etc/nginx/
+rm sites-enabled/default
 crontab -r >/dev/null 2>&1
 (
 	crontab -l 2>/dev/null
@@ -76,7 +78,6 @@ echo -e "INSTALANDO UFW"
 fun_bar 'inst_ufw'
 echo -e "INSTALANDO SOFTWARE-PROPERTIES-COMMON"
 fun_bar 'inst_software-properties-common'
-
 clear
 echo -e ""
 echo -e "  \033[1;36mCRIANDO CONFIGURAÇÃO\033[1;37m"
@@ -86,6 +87,10 @@ sleep 2
 clear
 echo -e ""
 read -p "  DOMÍNIO: " -e -i www.google.com dm
-sed -i 's/www.google.com/'$dm'/g' /etc/nginx/conf.d/domain‑name.conf
+mv /etc/nginx/conf.d/www.google.com.conf /etc/nginx/conf.d/$dm.conf
+sleep 2
+sed -i 's/www.google.com/'$dm'/g' /etc/nginx/conf.d/$dm.conf
 clear
-certbot --nginx
+nginx -t && nginx -s reload
+sleep 1
+certbot --nginx -d $dm

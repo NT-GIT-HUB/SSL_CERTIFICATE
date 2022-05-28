@@ -37,7 +37,7 @@ tput cnorm
 }
 
 copyfile (){
-cd /etc/nginx/confid.d && wget https://raw.githubusercontent.com/NT-GIT-HUB/SSL_CERTIFICATE/main/domain‑name.conf
+cd /etc/nginx/confid.d && wget https://raw.githubusercontent.com/NT-GIT-HUB/SSL_CERTIFICATE/main/www.google.com.conf
 sleep 1
 cd /etc/nginx/
 rm sites-enabled/default

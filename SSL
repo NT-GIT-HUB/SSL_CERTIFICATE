@@ -50,9 +50,7 @@ crontab -r >/dev/null 2>&1
 }
 
 inst_nginx () {
-apt-get update
 apt-get install nginx -y
-service nginx restart
 }
 inst_certbot () {
 apt install certbot -y
